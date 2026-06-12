@@ -1,5 +1,5 @@
 ---
-name: fix-dev-reviews
+name: grails-fix-dev-reviews
 description: Fourth-pass closer for an EARS specification file produced by /grails-to-ears. Consumes the two developer-review sections a human filled in directly in the spec — `## Review by Developer (code)` (source-code pointers to rules — or whole entities/enums — missing from the spec) and `## Review by Developer (business requirements)` (business decisions needing a human answer). For each unchecked entry it investigates the referenced code, writes a reviewable report, and — only after the user approves — folds confident findings in as code-free EARS statements, adds any missing entity/enum-state as a new `### <Name>` block (with all properties) in Domain Entities / Domain Concepts, and turns ambiguous findings and all business-requirement entries into [NEEDS REVIEW] Open Questions, then checks the entry off and annotates where it landed (module/subsection, entity/concept block, or Open Question) plus the EARS line number. Each `## Module:` and content `### Subsection` in the input carries a `> **Source files:**` annotation (grails-to-ears Rule 14) which this skill preserves, uses as a supplemental locate hint, and keeps accurate. Trigger when the user types `/fix-dev-reviews <path-to-EARS-file>` (entry-point (controller / action service) path(s) may be passed as an optional override).
 ---
 

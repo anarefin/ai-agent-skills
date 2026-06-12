@@ -1,5 +1,5 @@
 ---
-name: ears-gap-fix
+name: grails-ears-gap-fix
 description: Third-pass gap closer for an EARS specification file produced by /grails-to-ears. Given just the EARS file, reads the entry-point path(s) from the file's own `Source Entry Point(s)` header, re-walks every listed entry point's full call chain, and finds anything that exists in the source code but is MISSING from the EARS file — business rules AND data-model elements (entity properties, enum states). It writes a reviewable GAP REPORT and — only after the user approves — applies fixes: unambiguous rules become code-free EARS statements in the right module; a missing entity/property or enum-state becomes a new or extended `### <Name>` block in Domain Entities / Domain Concepts (plus any rule-bearing fields as statements); ambiguous ones become [NEEDS REVIEW] Open Questions in the resolve-open-questions footer format. Each `## Module:` and content `### Subsection` carries a `> **Source files:**` annotation (grails-to-ears Rule 14) which this skill reads, uses as a supplemental locate hint, preserves, and keeps accurate; it also refreshes the Extraction Summary including its rule-site coverage rows and per-file ledger. Trigger when the user types `/ears-gap-fix <path-to-EARS-file>` (entry-point path(s) may be passed as an optional override).
 ---
 

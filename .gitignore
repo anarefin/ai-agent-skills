@@ -1,0 +1,77 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors & IDEs
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Cursor
+.cursor/
+
+# Secrets & local env
+.env
+.env.*
+!.env.example
+
+# Logs & temp files
+*.log
+*.tmp
+*.temp
+.cache/
+
+# Python (if skill scripts are added later)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node (if skill scripts are added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# graphify — generated knowledge-graph artifacts
+graphify-out/
+raw/
+
+# caveman-compress — human-readable backups before compression
+*.original.md
+
+# External symlinks to ~/.agents/skills (machine-local, not repo content)
+/caveman
+/caveman-commit
+/caveman-compress
+/caveman-help
+/caveman-review
+/caveman-stats
+
+# Nested clone metadata (prompt-master was vendored from upstream)
+prompt-master/.git/

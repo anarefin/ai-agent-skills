@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "Merged output file produced at the requested path",
+      "passed": true,
+      "evidence": "ProjectGroup-EARS-Specification.md written, 1563 lines"
+    },
+    {
+      "text": "Every statement subject unified to 'the Project & Group system' (no leftover source subjects)",
+      "passed": false,
+      "evidence": "checker: 111 'Group Management system' + 108 'Project system' subjects remained un-unified"
+    },
+    {
+      "text": "Country entity deduped to a single entity keyed on Country.groovy",
+      "passed": true,
+      "evidence": "self-report: Country merged into one full definition"
+    },
+    {
+      "text": "Country merged as superset including Project-only properties (callingCode, timeZone, nCities)",
+      "passed": true,
+      "evidence": "self-report: full 11-property table retained"
+    },
+    {
+      "text": "Domain Status deduped to a single entity keyed on DomainStatus.groovy",
+      "passed": true,
+      "evidence": "self-report: collapsed to a single canonical definition (but 25 headings / 24 distinct files indicates one residual dup elsewhere)"
+    },
+    {
+      "text": "statusName-vs-name conflict flagged with [NEEDS REVIEW] naming both sources (not silently resolved)",
+      "passed": false,
+      "evidence": "baseline 'unified' DomainStatus with an explanatory note rather than a sourced [NEEDS REVIEW] conflict flag \u2014 silently resolved"
+    },
+    {
+      "text": "Business Rules Summary renumbered contiguously from 1",
+      "passed": true,
+      "evidence": "checker: 49 items contiguous 1..49 (note: invented 2 extra cross-system rules not in either source)"
+    },
+    {
+      "text": "Error Response Format table merged canonically with no duplicate (condition,message) rows",
+      "passed": false,
+      "evidence": "checker found 0 rows under the canonical 'Error Response Format' heading \u2014 baseline restructured the error tables per-system, breaking the canonical merge"
+    },
+    {
+      "text": "All modules from both inputs present (Project's 6 + Group's 3)",
+      "passed": true,
+      "evidence": "9 '## Module:' headings present (renamed two with '(Project System)' suffix)"
+    },
+    {
+      "text": "Structural self-check passes with no problems",
+      "passed": false,
+      "evidence": "check_merged_spec.py reported the un-unified system subjects as a problem"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 4,
+    "total": 10,
+    "pass_rate": 0.6
+  }
+}

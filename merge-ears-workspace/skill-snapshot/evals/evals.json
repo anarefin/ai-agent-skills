@@ -1,0 +1,39 @@
+{
+  "skill_name": "merge-ears",
+  "evals": [
+    {
+      "id": 0,
+      "name": "member-group-overlap",
+      "prompt": "Merge the two EARS specifications docs/ears/MemberManagement-EARS-Specification.md and docs/ears/GroupManagement-EARS-Specification.md into a single combined EARS spec. Use \"the Member & Group Management system\" as the merged system name. Write the result to docs/ears/MemberGroupManagement-EARS-Specification.md.",
+      "expected_output": "A single merged EARS file at the requested path. Shared entities that appear in both inputs (MemberInfo/Member, GroupInfo/Group, Country, ProjectInfo, ProjectPolicyInfo, PhysicalOfficeInfo, EmployeeCoreInfo, DomainStatus, SavingsProduct, SavingsProductPolicy) each appear ONCE, with a Source files line that unions both inputs' references. One System Overview, one Document Conventions, one Cross-Cutting Requirements block (deduped), a merged error-message table with no duplicate rows, all modules from both specs, a contiguously renumbered Business Rules Summary, a combined Extraction Summary, and every statement subject rewritten to 'the Member & Group Management system'.",
+      "files": [
+        "docs/ears/MemberManagement-EARS-Specification.md",
+        "docs/ears/GroupManagement-EARS-Specification.md"
+      ],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "three-spec-scale",
+      "prompt": "Combine these three EARS specs into one: docs/ears/MemberManagement-EARS-Specification.md, docs/ears/GroupManagement-EARS-Specification.md, and docs/ears/MemberAdmissionBuffer-EARS-Specification.md. Call the merged system \"the Member Lifecycle system\" and save to docs/ears/MemberLifecycle-EARS-Specification.md.",
+      "expected_output": "One merged file combining all three specs. Entities recurring across the three inputs are deduped to a single copy each with unioned Source files refs. All modules from all three specs are present. Business Rules Summary is renumbered contiguously across all three. Extraction Summary sums the per-spec metrics and concatenates the three coverage ledgers. Every statement uses 'the Member Lifecycle system'.",
+      "files": [
+        "docs/ears/MemberManagement-EARS-Specification.md",
+        "docs/ears/GroupManagement-EARS-Specification.md",
+        "docs/ears/MemberAdmissionBuffer-EARS-Specification.md"
+      ],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "project-group-conflict",
+      "prompt": "Merge docs/ears/Project-EARS-Specification.md and docs/ears/GroupManagement-EARS-Specification.md into one EARS spec named for \"the Project & Group system\", written to docs/ears/ProjectGroup-EARS-Specification.md.",
+      "expected_output": "A merged file in which the Country entity (present in both inputs from the same Country.groovy source file but with different property tables) is deduped to one entity built as the superset of both property lists, with unioned source refs. The Domain Status entity (DomainStatus.groovy in both, but Group calls the name property 'name' while Project calls it 'statusName') is flagged as a conflict with a [NEEDS REVIEW] marker naming both source files/specs, rather than silently picking one. All modules from both specs present; Business Rules renumbered contiguously; one merged Cross-Cutting block; every subject rewritten to 'the Project & Group system'.",
+      "files": [
+        "docs/ears/Project-EARS-Specification.md",
+        "docs/ears/GroupManagement-EARS-Specification.md"
+      ],
+      "assertions": []
+    }
+  ]
+}

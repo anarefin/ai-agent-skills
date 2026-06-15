@@ -1,0 +1,6 @@
+{
+  "eval_id": 1,
+  "eval_name": "three-spec-scale",
+  "prompt": "Combine these three EARS specs into one: docs/ears/MemberManagement-EARS-Specification.md, docs/ears/GroupManagement-EARS-Specification.md, and docs/ears/MemberAdmissionBuffer-EARS-Specification.md. Call the merged system \"the Member Lifecycle system\" and save to docs/ears/MemberLifecycle-EARS-Specification.md.",
+  "assertions": []
+}

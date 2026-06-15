@@ -1,0 +1,25 @@
+{
+  "run_id": "catalog-from-files-old_skill",
+  "expectations": [
+    {
+      "text": "Output catalog file produced",
+      "passed": true,
+      "evidence": "EARS-Action-Endpoint-Catalog.md"
+    },
+    {
+      "text": "Table has the four required columns",
+      "passed": false,
+      "evidence": "header=['Controller action', 'Module / Domain', 'Backing service / action class', 'Controller source file', 'EARS source file']"
+    },
+    {
+      "text": "check_catalog.py passes (exit 0)",
+      "passed": false,
+      "evidence": "1 problem(s) found."
+    },
+    {
+      "text": "Output is a catalog, not a merged spec",
+      "passed": true,
+      "evidence": "merge-section present: False"
+    }
+  ]
+}

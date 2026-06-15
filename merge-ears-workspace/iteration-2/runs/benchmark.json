@@ -1,0 +1,358 @@
+{
+  "metadata": {
+    "skill_name": "merge-ears",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-06-14T23:31:11Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 122.6,
+        "tokens": 108587,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output catalog file produced",
+          "passed": true,
+          "evidence": "EARS-Action-Endpoint-Catalog.md"
+        },
+        {
+          "text": "Table has the four required columns",
+          "passed": false,
+          "evidence": "header=['#', 'Action / Endpoint', 'Module', 'Source file(s)', 'Spec(s)']"
+        },
+        {
+          "text": "check_catalog.py passes (exit 0)",
+          "passed": false,
+          "evidence": "1 problem(s) found."
+        },
+        {
+          "text": "Output is a catalog, not a merged spec",
+          "passed": true,
+          "evidence": "merge-section present: False"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 541.2,
+        "tokens": 92974,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output catalog file produced",
+          "passed": true,
+          "evidence": "EARS-Action-Endpoint-Catalog.md"
+        },
+        {
+          "text": "Table has the four required columns",
+          "passed": false,
+          "evidence": "header=['Controller action', 'Module / Domain', 'Backing service / action class', 'Controller source file', 'EARS source file']"
+        },
+        {
+          "text": "check_catalog.py passes (exit 0)",
+          "passed": false,
+          "evidence": "1 problem(s) found."
+        },
+        {
+          "text": "Output is a catalog, not a merged spec",
+          "passed": true,
+          "evidence": "merge-section present: False"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.3333,
+        "passed": 1,
+        "failed": 2,
+        "total": 3,
+        "time_seconds": 65.3,
+        "tokens": 68233,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output catalog file produced",
+          "passed": true,
+          "evidence": "MemberAdmissionApproval-Catalog.md"
+        },
+        {
+          "text": "Table has the four required columns",
+          "passed": false,
+          "evidence": "header=['#', 'Endpoint (controller action)', 'Operation', 'Module documented under', 'Source file']"
+        },
+        {
+          "text": "check_catalog.py passes (exit 0)",
+          "passed": false,
+          "evidence": "1 problem(s) found."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 62.6,
+        "tokens": 105501,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output catalog file produced",
+          "passed": true,
+          "evidence": "EARS-Action-Endpoint-Catalog.md"
+        },
+        {
+          "text": "Table has the four required columns",
+          "passed": true,
+          "evidence": "header=['#', 'Action / Endpoint', 'Module / Domain', 'Source Code Reference', 'Originating EARS File']"
+        },
+        {
+          "text": "Originating file 'GroupCreation-EARS-Specification.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "Originating file 'MemberAdmissionApproval-EARS-Specification.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "Originating file 'MemberDomain-EARS-Specification.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "Originating file 'MemberManagement-EARS-Specification-Resolved.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "check_catalog.py passes (exit 0)",
+          "passed": true,
+          "evidence": "\u2713 No structural problems found."
+        },
+        {
+          "text": "Output is a catalog, not a merged spec",
+          "passed": true,
+          "evidence": "merge-section present: False"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "time_seconds": 64.9,
+        "tokens": 85436,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output catalog file produced",
+          "passed": true,
+          "evidence": "EARS-Action-Endpoint-Catalog.md"
+        },
+        {
+          "text": "Table has the four required columns",
+          "passed": true,
+          "evidence": "header=['#', 'Action / Endpoint', 'Module / Domain', 'Source Code Reference', 'Originating EARS File']"
+        },
+        {
+          "text": "Row present for action/endpoint 'create'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Row present for action/endpoint 'save'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Row present for action/endpoint 'approveMemberAdmission'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Row present for action/endpoint 'approveMemberUpdate'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Originating file 'GroupCreation-EARS-Specification.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "Originating file 'MemberDomain-EARS-Specification.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "check_catalog.py passes (exit 0)",
+          "passed": true,
+          "evidence": "\u2713 No structural problems found."
+        },
+        {
+          "text": "Output is a catalog, not a merged spec",
+          "passed": true,
+          "evidence": "merge-section present: False"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 39.3,
+        "tokens": 51855,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output catalog file produced",
+          "passed": true,
+          "evidence": "MemberAdmissionApproval-Catalog.md"
+        },
+        {
+          "text": "Table has the four required columns",
+          "passed": true,
+          "evidence": "header=['#', 'Action / Endpoint', 'Module / Domain', 'Source Code Reference', 'Originating EARS File']"
+        },
+        {
+          "text": "Row present for action/endpoint 'approveMemberAdmission'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Row present for action/endpoint 'approveMemberUpdate'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Row present for action/endpoint 'CreateMemberAdmissionApiAction'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Row present for action/endpoint 'UpdateMemberAdmissionApiAction'",
+          "passed": true,
+          "evidence": "in action column: True"
+        },
+        {
+          "text": "Originating file 'MemberAdmissionApproval-EARS-Specification.md' represented",
+          "passed": true,
+          "evidence": "True"
+        },
+        {
+          "text": "check_catalog.py passes (exit 0)",
+          "passed": true,
+          "evidence": "\u2713 No structural problems found."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "old_skill": {
+      "pass_rate": {
+        "mean": 0.4444,
+        "stddev": 0.0962,
+        "min": 0.3333,
+        "max": 0.5
+      },
+      "time_seconds": {
+        "mean": 243.0333,
+        "stddev": 259.8044,
+        "min": 65.3,
+        "max": 541.2
+      },
+      "tokens": {
+        "mean": 89931.3333,
+        "stddev": 20348.3339,
+        "min": 68233,
+        "max": 108587
+      }
+    },
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 55.6,
+        "stddev": 14.163,
+        "min": 39.3,
+        "max": 64.9
+      },
+      "tokens": {
+        "mean": 80930.6667,
+        "stddev": 27105.2919,
+        "min": 51855,
+        "max": 105501
+      }
+    },
+    "delta": {
+      "pass_rate": "-0.56",
+      "time_seconds": "+187.4",
+      "tokens": "+9001"
+    }
+  },
+  "notes": []
+}

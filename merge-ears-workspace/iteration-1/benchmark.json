@@ -1,0 +1,199 @@
+{
+  "metadata": {
+    "skill_name": "merge-ears",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-06-14T06:00:45Z",
+    "evals_run": [
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "time_seconds": 508.8,
+        "tokens": 84727,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Merged output file produced at the requested path",
+          "passed": true,
+          "evidence": "ProjectGroup-EARS-Specification.md written, 1474 lines"
+        },
+        {
+          "text": "Every statement subject unified to 'the Project & Group system' (no leftover source subjects)",
+          "passed": true,
+          "evidence": "checker: all 203 'the X system' subjects use 'Project & Group system'; 0 leftovers"
+        },
+        {
+          "text": "Country entity deduped to a single entity keyed on Country.groovy",
+          "passed": true,
+          "evidence": "single Country heading @880; checker reports 25 headings / 25 distinct source files"
+        },
+        {
+          "text": "Country merged as superset including Project-only properties (callingCode, timeZone, nCities)",
+          "passed": true,
+          "evidence": "superset table emitted with [NEEDS REVIEW] note @884 listing the extra columns"
+        },
+        {
+          "text": "Domain Status deduped to a single entity keyed on DomainStatus.groovy",
+          "passed": true,
+          "evidence": "single Domain Status heading @914"
+        },
+        {
+          "text": "statusName-vs-name conflict flagged with [NEEDS REVIEW] naming both sources (not silently resolved)",
+          "passed": true,
+          "evidence": "block @918 + inline @923 both tagged '[NEEDS REVIEW: Project... vs GroupManagement...]'; merged cell shows 'statusName / name'"
+        },
+        {
+          "text": "Business Rules Summary renumbered contiguously from 1",
+          "passed": true,
+          "evidence": "checker: 47 items, contiguous 1..47"
+        },
+        {
+          "text": "Error Response Format table merged canonically with no duplicate (condition,message) rows",
+          "passed": true,
+          "evidence": "checker: 46 error rows, no exact duplicates"
+        },
+        {
+          "text": "All modules from both inputs present (Project's 6 + Group's 3)",
+          "passed": true,
+          "evidence": "9 '## Module:' headings present"
+        },
+        {
+          "text": "Structural self-check passes with no problems",
+          "passed": true,
+          "evidence": "check_merged_spec.py: '\u2713 No structural problems found.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 6,
+        "failed": 4,
+        "total": 10,
+        "time_seconds": 491.3,
+        "tokens": 76094,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Merged output file produced at the requested path",
+          "passed": true,
+          "evidence": "ProjectGroup-EARS-Specification.md written, 1563 lines"
+        },
+        {
+          "text": "Every statement subject unified to 'the Project & Group system' (no leftover source subjects)",
+          "passed": false,
+          "evidence": "checker: 111 'Group Management system' + 108 'Project system' subjects remained un-unified"
+        },
+        {
+          "text": "Country entity deduped to a single entity keyed on Country.groovy",
+          "passed": true,
+          "evidence": "self-report: Country merged into one full definition"
+        },
+        {
+          "text": "Country merged as superset including Project-only properties (callingCode, timeZone, nCities)",
+          "passed": true,
+          "evidence": "self-report: full 11-property table retained"
+        },
+        {
+          "text": "Domain Status deduped to a single entity keyed on DomainStatus.groovy",
+          "passed": true,
+          "evidence": "self-report: collapsed to a single canonical definition (but 25 headings / 24 distinct files indicates one residual dup elsewhere)"
+        },
+        {
+          "text": "statusName-vs-name conflict flagged with [NEEDS REVIEW] naming both sources (not silently resolved)",
+          "passed": false,
+          "evidence": "baseline 'unified' DomainStatus with an explanatory note rather than a sourced [NEEDS REVIEW] conflict flag \u2014 silently resolved"
+        },
+        {
+          "text": "Business Rules Summary renumbered contiguously from 1",
+          "passed": true,
+          "evidence": "checker: 49 items contiguous 1..49 (note: invented 2 extra cross-system rules not in either source)"
+        },
+        {
+          "text": "Error Response Format table merged canonically with no duplicate (condition,message) rows",
+          "passed": false,
+          "evidence": "checker found 0 rows under the canonical 'Error Response Format' heading \u2014 baseline restructured the error tables per-system, breaking the canonical merge"
+        },
+        {
+          "text": "All modules from both inputs present (Project's 6 + Group's 3)",
+          "passed": true,
+          "evidence": "9 '## Module:' headings present (renamed two with '(Project System)' suffix)"
+        },
+        {
+          "text": "Structural self-check passes with no problems",
+          "passed": false,
+          "evidence": "check_merged_spec.py reported the un-unified system subjects as a problem"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 508.8,
+        "stddev": 0.0,
+        "min": 508.8,
+        "max": 508.8
+      },
+      "tokens": {
+        "mean": 84727.0,
+        "stddev": 0.0,
+        "min": 84727,
+        "max": 84727
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6,
+        "stddev": 0.0,
+        "min": 0.6,
+        "max": 0.6
+      },
+      "time_seconds": {
+        "mean": 491.3,
+        "stddev": 0.0,
+        "min": 491.3,
+        "max": 491.3
+      },
+      "tokens": {
+        "mean": 76094.0,
+        "stddev": 0.0,
+        "min": 76094,
+        "max": 76094
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.40",
+      "time_seconds": "+17.5",
+      "tokens": "+8633"
+    }
+  },
+  "notes": []
+}

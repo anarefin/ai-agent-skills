@@ -1,0 +1,1 @@
+Catalog all the actions/endpoints described by the EARS specifications in the docs/ears/ directory (including the member/ subfolder). I want one table listing each action/endpoint, its module, the source file, and the spec it came from. Save the catalog to docs/ears/EARS-Action-Endpoint-Catalog.md.

@@ -1,0 +1,25 @@
+{
+  "eval_id": 1,
+  "eval_name": "catalog-from-directory",
+  "prompt": "Catalog all the actions/endpoints described by the EARS specifications in the docs/ears/ directory (including the member/ subfolder). I want one table listing each action/endpoint, its module, the source file, and the spec it came from. Save the catalog to docs/ears/EARS-Action-Endpoint-Catalog.md.",
+  "assertions": [
+    {
+      "text": "Output catalog markdown file was produced"
+    },
+    {
+      "text": "Table has the four required columns"
+    },
+    {
+      "text": "All four EARS specs under docs/ears/ (GroupCreation, MemberAdmissionApproval, MemberDomain, MemberManagement-Resolved) appear in the Originating EARS File column"
+    },
+    {
+      "text": "Every input's entry-point source files appear in the Source Code Reference column (check_catalog.py passes with all four inputs)"
+    },
+    {
+      "text": "No row is missing a Source Code Reference"
+    },
+    {
+      "text": "The directory was globbed recursively (member/ subfolder specs included)"
+    }
+  ]
+}

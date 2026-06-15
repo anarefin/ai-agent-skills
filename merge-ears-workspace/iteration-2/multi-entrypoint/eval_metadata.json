@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "multi-entrypoint",
+  "prompt": "From docs/ears/member/MemberAdmissionApproval-EARS-Specification.md, produce a catalog of every endpoint it documents with the source file for each. Output to docs/ears/MemberAdmissionApproval-Catalog.md.",
+  "assertions": [
+    {"text": "Output catalog markdown file was produced"},
+    {"text": "Table has the four required columns"},
+    {"text": "approveMemberAdmission and approveMemberUpdate each appear as their own row on DcsMemberAdmissionBufferController.groovy"},
+    {"text": "CreateMemberAdmissionApiAction appears as its own endpoint row with its own source file"},
+    {"text": "UpdateMemberAdmissionApiAction appears as its own endpoint row with its own source file"},
+    {"text": "check_catalog.py passes (exit 0) against the output with the single input"}
+  ]
+}

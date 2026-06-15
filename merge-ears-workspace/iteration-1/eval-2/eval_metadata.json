@@ -1,0 +1,17 @@
+{
+  "eval_id": 2,
+  "eval_name": "project-group-conflict",
+  "prompt": "Merge docs/ears/Project-EARS-Specification.md and docs/ears/GroupManagement-EARS-Specification.md into one EARS spec named for \"the Project & Group system\", written to docs/ears/ProjectGroup-EARS-Specification.md.",
+  "assertions": [
+    "Merged output file produced at the requested path",
+    "Every statement subject unified to 'the Project & Group system' (no leftover source subjects)",
+    "Country entity deduped to a single entity keyed on Country.groovy",
+    "Country merged as superset including Project-only properties (callingCode, timeZone, nCities)",
+    "Domain Status deduped to a single entity keyed on DomainStatus.groovy",
+    "statusName-vs-name conflict flagged with [NEEDS REVIEW] naming both sources (not silently resolved)",
+    "Business Rules Summary renumbered contiguously from 1",
+    "Error Response Format table merged canonically with no duplicate (condition,message) rows",
+    "All modules from both inputs present (Project's 6 + Group's 3)",
+    "Structural self-check passes with no problems"
+  ]
+}

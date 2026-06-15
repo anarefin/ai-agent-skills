@@ -1,0 +1,6 @@
+{
+  "eval_id": 0,
+  "eval_name": "member-group-overlap",
+  "prompt": "Merge the two EARS specifications docs/ears/MemberManagement-EARS-Specification.md and docs/ears/GroupManagement-EARS-Specification.md into a single combined EARS spec. Use \"the Member & Group Management system\" as the merged system name. Write the result to docs/ears/MemberGroupManagement-EARS-Specification.md.",
+  "assertions": []
+}

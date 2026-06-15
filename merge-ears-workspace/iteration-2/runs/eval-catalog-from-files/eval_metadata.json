@@ -1,0 +1,28 @@
+{
+  "eval_id": 0,
+  "eval_name": "catalog-from-files",
+  "prompt": "Build an action/endpoint catalog from these two EARS specs: docs/ears/GroupCreation-EARS-Specification.md and docs/ears/member/MemberDomain-EARS-Specification.md. List every Grails action with its source file, module/domain, and which EARS file it came from. Write it to docs/ears/EARS-Action-Endpoint-Catalog.md.",
+  "assertions": [
+    {
+      "text": "Output catalog markdown file was produced"
+    },
+    {
+      "text": "Table has the four required columns: Action/Endpoint, Module/Domain, Source Code Reference, Originating EARS File"
+    },
+    {
+      "text": "Contains rows for the 'create' and 'save' actions"
+    },
+    {
+      "text": "Contains rows for approveMemberAdmission and approveMemberUpdate"
+    },
+    {
+      "text": "Both input filenames (GroupCreation, MemberDomain) appear in the Originating EARS File column"
+    },
+    {
+      "text": "check_catalog.py passes (exit 0) against the output with both inputs"
+    },
+    {
+      "text": "Output is a catalog, not a merged spec (no 'Business Rules Summary' or 'Domain Entities' merge sections)"
+    }
+  ]
+}

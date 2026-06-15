@@ -1,0 +1,1 @@
+Build an action/endpoint catalog from these two EARS specs: docs/ears/GroupCreation-EARS-Specification.md and docs/ears/member/MemberDomain-EARS-Specification.md. List every Grails action with its source file, module/domain, and which EARS file it came from. Write it to docs/ears/EARS-Action-Endpoint-Catalog.md.

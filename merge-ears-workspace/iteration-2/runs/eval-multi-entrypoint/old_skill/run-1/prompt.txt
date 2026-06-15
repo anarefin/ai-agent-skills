@@ -1,0 +1,1 @@
+From docs/ears/member/MemberAdmissionApproval-EARS-Specification.md, produce a catalog of every endpoint it documents with the source file for each. Output to docs/ears/MemberAdmissionApproval-Catalog.md.

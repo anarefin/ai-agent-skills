@@ -1,0 +1,66 @@
+{
+  "skill_name": "merge-ears",
+  "evals": [
+    {
+      "id": 0,
+      "name": "catalog-from-files",
+      "prompt": "Build an action/endpoint catalog from these two EARS specs: docs/ears/GroupCreation-EARS-Specification.md and docs/ears/member/MemberDomain-EARS-Specification.md. List every Grails action with its source file, module/domain, and which EARS file it came from. Write it to docs/ears/EARS-Action-Endpoint-Catalog.md.",
+      "expected_output": "A single markdown catalog file with a table whose columns are Action/Endpoint, Purpose, Module/Domain, Source Code Reference, and Originating EARS File. GroupCreation contributes rows for the 'create' and 'save' actions of GroupInfoController.groovy. MemberDomain contributes the DcsMemberAdmissionBufferController.groovy actions approveMemberAdmission and approveMemberUpdate, the CreateMemberAdmissionApiAction/UpdateMemberAdmissionApiAction classes, and — for the unqualified MemberInfoController.groovy — one row per individual operation enumerated from the spec's module subsections (e.g. CreateMemberInfoAction, UpdateMemberInfoAction, EditMemberInfoAction, DeleteMemberInfoAction) rather than a single (all actions) row. Every row has a non-empty Purpose and source reference; both input filenames appear in the Originating EARS File column. No spec merging, no deduping across files.",
+      "files": [
+        "docs/ears/GroupCreation-EARS-Specification.md",
+        "docs/ears/member/MemberDomain-EARS-Specification.md"
+      ],
+      "assertions": [
+        "Output catalog markdown file was produced",
+        "Table has the five required columns: Action/Endpoint, Purpose, Module/Domain, Source Code Reference, Originating EARS File",
+        "Contains rows for the 'create' and 'save' actions",
+        "Contains rows for approveMemberAdmission and approveMemberUpdate",
+        "MemberInfoController is broken into individual action rows (e.g. CreateMemberInfoAction, DeleteMemberInfoAction), not a single (all actions) row",
+        "Every row has a non-empty Purpose describing what the action does",
+        "Both input filenames appear in the Originating EARS File column",
+        "check_catalog.py passes (exit 0) with both inputs",
+        "Output is a catalog, not a merged spec"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "catalog-from-directory",
+      "prompt": "Catalog all the actions/endpoints described by the EARS specifications in the docs/ears/ directory (including the member/ subfolder). I want one table listing each action/endpoint, its module, the source file, and the spec it came from. Save the catalog to docs/ears/EARS-Action-Endpoint-Catalog.md.",
+      "expected_output": "One catalog file covering every *-EARS-Specification.md found under docs/ears/ recursively (GroupCreation, member/MemberAdmissionApproval, member/MemberDomain, member/MemberManagement-...-Resolved). Each input file appears in the Originating EARS File column; each input's entry-point source files all appear in the Source Code Reference column. The MemberManagement spec, whose front-matter names MemberInfoController.groovy with no action qualifier, is expanded into one row per individual operation drawn from its module subsections (Member Registration, Member Edit Form Loading, Member Profile Update, Member Deletion, etc.) — not a single (all actions) row. Table has the five required columns including Purpose; every row has a non-empty Purpose and source reference.",
+      "files": [
+        "docs/ears/GroupCreation-EARS-Specification.md",
+        "docs/ears/member/MemberAdmissionApproval-EARS-Specification.md",
+        "docs/ears/member/MemberDomain-EARS-Specification.md",
+        "docs/ears/member/MemberManagement-EARS-Specification-Resolved.md"
+      ],
+      "assertions": [
+        "Output catalog markdown file was produced",
+        "Table has the five required columns including Purpose",
+        "All four EARS specs appear in the Originating EARS File column",
+        "MemberManagement's MemberInfoController is expanded into individual action rows, not (all actions)",
+        "Every row has a non-empty Purpose",
+        "check_catalog.py passes with all four inputs",
+        "No row is missing a Source Code Reference",
+        "The directory was globbed recursively (member/ specs included)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "multi-entrypoint",
+      "prompt": "From docs/ears/member/MemberAdmissionApproval-EARS-Specification.md, produce a catalog of every endpoint it documents with the source file for each. Output to docs/ears/MemberAdmissionApproval-Catalog.md.",
+      "expected_output": "A catalog where each of the spec's entry points becomes its own row: the approveMemberAdmission and approveMemberUpdate actions on DcsMemberAdmissionBufferController.groovy, plus the standalone CreateMemberAdmissionApiAction.groovy and UpdateMemberAdmissionApiAction.groovy classes as their own endpoint rows. Each row carries the correct source path and module/domain. The single input file appears in the Originating EARS File column.",
+      "files": [
+        "docs/ears/member/MemberAdmissionApproval-EARS-Specification.md"
+      ],
+      "assertions": [
+        "Output catalog markdown file was produced",
+        "Table has the five required columns including Purpose",
+        "approveMemberAdmission and approveMemberUpdate each appear as their own row",
+        "CreateMemberAdmissionApiAction appears as its own endpoint row",
+        "UpdateMemberAdmissionApiAction appears as its own endpoint row",
+        "Every row has a non-empty Purpose",
+        "check_catalog.py passes (exit 0) with the single input"
+      ]
+    }
+  ]
+}

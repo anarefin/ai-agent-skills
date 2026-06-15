@@ -1,0 +1,55 @@
+{
+  "run_id": "catalog-from-files-with_skill",
+  "expectations": [
+    {
+      "text": "Output catalog file produced",
+      "passed": true,
+      "evidence": "EARS-Action-Endpoint-Catalog.md"
+    },
+    {
+      "text": "Table has the four required columns",
+      "passed": true,
+      "evidence": "header=['#', 'Action / Endpoint', 'Module / Domain', 'Source Code Reference', 'Originating EARS File']"
+    },
+    {
+      "text": "Row present for action/endpoint 'create'",
+      "passed": true,
+      "evidence": "in action column: True"
+    },
+    {
+      "text": "Row present for action/endpoint 'save'",
+      "passed": true,
+      "evidence": "in action column: True"
+    },
+    {
+      "text": "Row present for action/endpoint 'approveMemberAdmission'",
+      "passed": true,
+      "evidence": "in action column: True"
+    },
+    {
+      "text": "Row present for action/endpoint 'approveMemberUpdate'",
+      "passed": true,
+      "evidence": "in action column: True"
+    },
+    {
+      "text": "Originating file 'GroupCreation-EARS-Specification.md' represented",
+      "passed": true,
+      "evidence": "True"
+    },
+    {
+      "text": "Originating file 'MemberDomain-EARS-Specification.md' represented",
+      "passed": true,
+      "evidence": "True"
+    },
+    {
+      "text": "check_catalog.py passes (exit 0)",
+      "passed": true,
+      "evidence": "\u2713 No structural problems found."
+    },
+    {
+      "text": "Output is a catalog, not a merged spec",
+      "passed": true,
+      "evidence": "merge-section present: False"
+    }
+  ]
+}

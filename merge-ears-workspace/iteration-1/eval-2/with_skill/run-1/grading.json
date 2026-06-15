@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "Merged output file produced at the requested path",
+      "passed": true,
+      "evidence": "ProjectGroup-EARS-Specification.md written, 1474 lines"
+    },
+    {
+      "text": "Every statement subject unified to 'the Project & Group system' (no leftover source subjects)",
+      "passed": true,
+      "evidence": "checker: all 203 'the X system' subjects use 'Project & Group system'; 0 leftovers"
+    },
+    {
+      "text": "Country entity deduped to a single entity keyed on Country.groovy",
+      "passed": true,
+      "evidence": "single Country heading @880; checker reports 25 headings / 25 distinct source files"
+    },
+    {
+      "text": "Country merged as superset including Project-only properties (callingCode, timeZone, nCities)",
+      "passed": true,
+      "evidence": "superset table emitted with [NEEDS REVIEW] note @884 listing the extra columns"
+    },
+    {
+      "text": "Domain Status deduped to a single entity keyed on DomainStatus.groovy",
+      "passed": true,
+      "evidence": "single Domain Status heading @914"
+    },
+    {
+      "text": "statusName-vs-name conflict flagged with [NEEDS REVIEW] naming both sources (not silently resolved)",
+      "passed": true,
+      "evidence": "block @918 + inline @923 both tagged '[NEEDS REVIEW: Project... vs GroupManagement...]'; merged cell shows 'statusName / name'"
+    },
+    {
+      "text": "Business Rules Summary renumbered contiguously from 1",
+      "passed": true,
+      "evidence": "checker: 47 items, contiguous 1..47"
+    },
+    {
+      "text": "Error Response Format table merged canonically with no duplicate (condition,message) rows",
+      "passed": true,
+      "evidence": "checker: 46 error rows, no exact duplicates"
+    },
+    {
+      "text": "All modules from both inputs present (Project's 6 + Group's 3)",
+      "passed": true,
+      "evidence": "9 '## Module:' headings present"
+    },
+    {
+      "text": "Structural self-check passes with no problems",
+      "passed": true,
+      "evidence": "check_merged_spec.py: '\u2713 No structural problems found.'"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}
